@@ -5,90 +5,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PROJECT HUB | Amine & Kenny</title>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#050816;
-  --panel:#0c1328;
-  --blue:#38bdf8;
-  --purple:#818cf8;
-  --text:#edf5ff;
-  --muted:#91a4c4;
-}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  overflow-x:hidden;
-}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 20% 10%,#102e5580,transparent 35%),
-    radial-gradient(circle at 85% 70%,#28175355,transparent 35%);
-  z-index:-1;
-}
-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:24px 7%;border-bottom:1px solid #ffffff12;
-  backdrop-filter:blur(12px);
-}
+:root{--bg:#050816;--blue:#38bdf8;--text:#edf5ff;--muted:#91a4c4}
+body{background:var(--bg);color:var(--text);font-family:Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 10%,#102e5580,transparent 35%),radial-gradient(circle at 85% 70%,#28175355,transparent 35%);z-index:-1}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 7%;border-bottom:1px solid #ffffff12}
 .logo{font-size:20px;font-weight:900;letter-spacing:3px}
 .logo span{color:var(--blue)}
 nav a{color:var(--muted);text-decoration:none;margin-left:22px}
 nav a:hover{color:white}
-.hero{text-align:center;padding:100px 20px 65px}
-.tag{
-  display:inline-block;border:1px solid #38bdf855;
-  padding:9px 15px;border-radius:30px;color:var(--blue);
-  font-size:12px;letter-spacing:2px;margin-bottom:25px
-}
-.hero h1{font-size:clamp(42px,8vw,85px);font-weight:900;letter-spacing:-4px}
-.hero h1 span{
-  background:linear-gradient(90deg,#38bdf8,#818cf8,#c084fc);
-  -webkit-background-clip:text;color:transparent
-}
+.hero{text-align:center;padding:90px 20px 60px}
+.tag{display:inline-block;border:1px solid #38bdf855;padding:9px 15px;border-radius:30px;color:var(--blue);font-size:12px;letter-spacing:2px;margin-bottom:25px}
+.hero h1{font-size:clamp(40px,8vw,85px);font-weight:900;letter-spacing:-4px}
+.hero h1 span{background:linear-gradient(90deg,#38bdf8,#818cf8,#c084fc);-webkit-background-clip:text;color:transparent}
 .hero p{color:var(--muted);margin:22px auto;max-width:600px;line-height:1.7}
-.stats{display:flex;justify-content:center;gap:45px;margin-top:38px}
+.stats{display:flex;justify-content:center;gap:45px;margin-top:35px}
 .stat strong{display:block;font-size:28px;color:var(--blue)}
 .stat small{color:var(--muted)}
 .container{max-width:1250px;margin:auto;padding:20px}
 .section-title{font-size:26px;margin-bottom:8px}
 .section-desc{color:var(--muted);margin-bottom:25px}
 .toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}
-input,select{
-  background:#0c1328;color:white;border:1px solid #263552;
-  border-radius:12px;padding:14px;font-size:15px;outline:none
-}
+input,select{background:#0c1328;color:white;border:1px solid #263552;border-radius:12px;padding:14px;font-size:15px;outline:none}
 input{flex:1;min-width:220px}
 input:focus,select:focus{border-color:var(--blue)}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}
-.filter{
-  padding:10px 16px;border:1px solid #263552;border-radius:25px;
-  background:#0c1328;color:#9db0d1;cursor:pointer;transition:.2s
-}
-.filter.active,.filter:hover{
-  background:#122a45;border-color:var(--blue);color:var(--blue)
-}
-.grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px
-}
-.card{
-  background:linear-gradient(145deg,#101a30,#090f1e);
-  border:1px solid #ffffff12;border-radius:18px;
-  padding:23px;position:relative;overflow:hidden;
-  transition:.3s;animation:appear .5s ease both;
-}
+.filter{padding:10px 16px;border:1px solid #263552;border-radius:25px;background:#0c1328;color:#9db0d1;cursor:pointer;transition:.2s}
+.filter.active,.filter:hover{background:#122a45;border-color:var(--blue);color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:linear-gradient(145deg,#101a30,#090f1e);border:1px solid #ffffff12;border-radius:18px;padding:23px;position:relative;overflow:hidden;transition:.3s;animation:appear .5s ease both}
 .card:hover{transform:translateY(-6px);border-color:#38bdf866;box-shadow:0 10px 35px #0005}
-.card::after{
-  content:"";position:absolute;width:130px;height:130px;
-  background:#38bdf810;filter:blur(45px);top:-70px;right:-50px
-}
 .card-top{display:flex;justify-content:space-between;align-items:center}
 .icon{font-size:35px}
 .status{font-size:10px;color:#65e6a6;letter-spacing:1px}
@@ -96,156 +43,142 @@ input:focus,select:focus{border-color:var(--blue)}
 .card p{color:var(--muted);line-height:1.6;font-size:13px;min-height:42px}
 .category{color:var(--blue);font-size:11px;margin-top:15px}
 .card-actions{display:flex;gap:8px;margin-top:20px}
-.btn{
-  flex:1;text-align:center;padding:11px;border-radius:10px;
-  text-decoration:none;font-size:12px;font-weight:bold;
-  background:#132642;color:var(--blue);border:1px solid #38bdf833
-}
+.btn{flex:1;text-align:center;padding:11px;border-radius:10px;text-decoration:none;font-size:12px;font-weight:bold;background:#132642;color:var(--blue);border:1px solid #38bdf833}
 .btn:hover{background:#1b365a}
 .btn.secondary{background:transparent;color:#93a6c7;border-color:#ffffff20}
 .empty{padding:50px;text-align:center;color:var(--muted);display:none}
 #loading{padding:20px;color:var(--muted)}
-footer{
-  margin-top:80px;padding:35px;text-align:center;
-  border-top:1px solid #ffffff12;color:var(--muted);font-size:12px
-}
+footer{margin-top:80px;padding:35px;text-align:center;border-top:1px solid #ffffff12;color:var(--muted);font-size:12px}
 footer strong{color:var(--blue)}
-@keyframes appear{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@media(max-width:600px){
-  header{padding:18px}
-  nav a{margin-left:10px;font-size:12px}
-  .hero{padding:75px 15px 40px}
-  .hero h1{letter-spacing:-2px}
-  .stats{gap:20px}
-  .container{padding:15px}
-}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){header{padding:18px}nav a{margin-left:10px;font-size:12px}.hero{padding:65px 15px 40px}.hero h1{letter-spacing:-2px}.stats{gap:20px}.container{padding:15px}}
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo">PROJECT<span> HUB</span></div>
-  <nav>
-    <a href="#projects">Projets</a>
-    <a href="https://github.com/enzopontivien" target="_blank">GitHub ↗</a>
-  </nav>
+<div class="logo">PROJECT<span> HUB</span></div>
+<nav>
+<a href="#projects">Projets</a>
+<a href="https://github.com/enzopontivien" target="_blank">GitHub ↗</a>
+</nav>
 </header>
 
 <section class="hero">
-  <div class="tag">✦ COLLECTION DE PROJETS</div>
-  <h1>AMINE & KENNY<br><span>PROJECT HUB</span></h1>
-  <p>Tous nos univers, nos expériences, nos créations et nos projets réunis dans un seul endroit.</p>
-
-  <div class="stats">
-    <div class="stat"><strong id="count">0</strong><small>PROJETS</small></div>
-    <div class="stat"><strong>∞</strong><small>CRÉATIVITÉ</small></div>
-    <div class="stat"><strong>01</strong><small>HUB</small></div>
-  </div>
+<div class="tag">✦ COLLECTION DE PROJETS</div>
+<h1>AMINE & KENNY<br><span>PROJECT HUB</span></h1>
+<p>Tous nos univers, nos expériences, nos créations et nos projets réunis dans un seul endroit.</p>
+<div class="stats">
+<div class="stat"><strong id="count">0</strong><small>PROJETS</small></div>
+<div class="stat"><strong>∞</strong><small>CRÉATIVITÉ</small></div>
+<div class="stat"><strong>01</strong><small>HUB</small></div>
+</div>
 </section>
 
 <main class="container" id="projects">
-  <h2 class="section-title">Tous nos projets</h2>
-  <p class="section-desc">Explore les sites que nous avons créés.</p>
+<h2 class="section-title">Tous nos projets</h2>
+<p class="section-desc">Explore les sites que nous avons créés.</p>
 
-  <div class="toolbar">
-    <input id="search" type="search" placeholder="🔎 Rechercher un projet...">
-    <select id="sort">
-      <option value="default">Ordre normal</option>
-      <option value="az">Nom A → Z</option>
-    </select>
-  </div>
+<div class="toolbar">
+<input id="search" type="search" placeholder="🔎 Rechercher un projet...">
+<select id="sort">
+<option value="default">Ordre normal</option>
+<option value="az">Nom A → Z</option>
+</select>
+</div>
 
-  <div class="filters" id="filters">
-    <button class="filter active" data-category="Tous">Tous</button>
-    <button class="filter" data-category="École">École</button>
-    <button class="filter" data-category="IA">Intelligence artificielle</button>
-    <button class="filter" data-category="Expérience">Expériences</button>
-    <button class="filter" data-category="Autre">Autres</button>
-  </div>
+<div class="filters" id="filters">
+<button class="filter active" data-category="Tous">Tous</button>
+<button class="filter" data-category="École">École</button>
+<button class="filter" data-category="IA">Intelligence artificielle</button>
+<button class="filter" data-category="Expérience">Expériences</button>
+<button class="filter" data-category="Autre">Autres</button>
+</div>
 
-  <div id="loading">Chargement des projets...</div>
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="empty">Aucun projet trouvé.</div>
+<div id="loading">Chargement des projets...</div>
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">Aucun projet trouvé.</div>
 </main>
 
 <footer>
-  <strong>AMINE & KENNY</strong> · PROJECT HUB<br><br>
-  Tous nos projets réunis au même endroit.
+<strong>AMINE & KENNY</strong> · PROJECT HUB<br><br>
+Tous nos projets réunis au même endroit.
 </footer>
 
 <script>
-const projects = [
-  {
-    name:"PLANETTE-PRO",
-    description:"Explore le système solaire, les planètes et les mystères de l'espace.",
-    icon:"🪐", category:"École",
-    url:"https://planette-pro-9.onrender.com",
-    repo:"https://github.com/enzopontivien/PLANETTE-PRO"
-  },
-  {
-    name:"OCEAN 2075",
-    description:"Une exploration futuriste des océans et du monde sous-marin.",
-    icon:"🌊", category:"École",
-    url:"https://ocean-2075.onrender.com"
-  },
-  {
-    name:"L'EMPIRE FRANÇAIS",
-    description:"Découvre l'histoire de l'Empire français à travers un site immersif.",
-    icon:"🏛️", category:"École",
-    url:"https://l-empire-francaise.onrender.com"
-  },
-  {
-    name:"AU CENTRE DE LA TERRE",
-    description:"Voyage au cœur de la Terre et découvre ses couches mystérieuses.",
-    icon:"🌋", category:"École",
-    url:"#"
-  },
-  {
-    name:"NOVA IA",
-    description:"Notre univers de création avec l'intelligence artificielle.",
-    icon:"🤖", category:"IA",
-    url:"#"
-  },
-  {
-    name:"FRUITSTUDIO AI",
-    description:"Un laboratoire créatif pour imaginer des vidéos IA.",
-    icon:"🍉", category:"IA",
-    url:"#"
-  },
-  {
-    name:"NOVA GUARD",
-    description:"Un projet de protection et de modération pour les communautés.",
-    icon:"🛡️", category:"IA",
-    url:"#"
-  },
-  {
-    name:"AI STORY",
-    description:"Une expérience autour des histoires créées par intelligence artificielle.",
-    icon:"📖", category:"IA",
-    url:"#"
-  },
-  {
-    name:"VIDEOX AI",
-    description:"Un projet de création vidéo assistée par IA.",
-    icon:"🎬", category:"IA",
-    url:"#"
-  },
-  {
-    name:"AI GENERATOR",
-    description:"Un espace dédié à la génération créative par intelligence artificielle.",
-    icon:"✨", category:"IA",
-    url:"#"
-  },
-  {
-    name:"REVISE",
-    description:"Un projet pour apprendre, progresser et réviser autrement.",
-    icon:"📚", category:"École",
-    url:"#"
-  }
+const projects=[
+{
+name:"PLANETTE-PRO",
+description:"Explore le système solaire, les planètes et les mystères de l'espace.",
+icon:"🪐",category:"École",
+url:"https://planette-pro-9.onrender.com",
+repo:"https://github.com/enzopontivien/PLANETTE-PRO"
+},
+{
+name:"OCEAN 2075",
+description:"Une exploration futuriste des océans et du monde sous-marin.",
+icon:"🌊",category:"École",
+url:"https://ocean-2075.onrender.com"
+},
+{
+name:"EMPIRE FR",
+description:"Découverte immersive de l'histoire de l'Empire français.",
+icon:"🏛️",category:"École",
+url:"https://empire-fr.onrender.com"
+},
+{
+name:"AU CENTRE DE LA TERRE",
+description:"Explore les couches terrestres jusqu'au noyau de notre planète.",
+icon:"🌋",category:"École",
+url:"https://centre-g932.onrender.com"
+},
+{
+name:"UNIVERS INFINI",
+description:"Voyage à travers l'univers, les galaxies et les mystères du cosmos.",
+icon:"🌌",category:"École",
+url:"https://univers-infini.onrender.com"
+},
+{
+name:"DINOWORLD",
+description:"Plonge dans le monde des dinosaures et de la préhistoire.",
+icon:"🦖",category:"École",
+url:"https://dinoworld.onrender.com"
+},
+{
+name:"NOVA IA",
+description:"Notre univers de création avec l'intelligence artificielle.",
+icon:"🤖",category:"IA",url:"#"
+},
+{
+name:"FRUITSTUDIO AI",
+description:"Un laboratoire créatif pour imaginer des vidéos IA.",
+icon:"🍉",category:"IA",url:"#"
+},
+{
+name:"NOVA GUARD",
+description:"Un projet de protection et de modération pour les communautés.",
+icon:"🛡️",category:"IA",url:"#"
+},
+{
+name:"AI STORY",
+description:"Une expérience autour des histoires créées par intelligence artificielle.",
+icon:"📖",category:"IA",url:"#"
+},
+{
+name:"VIDEOX AI",
+description:"Un projet de création vidéo assistée par IA.",
+icon:"🎬",category:"IA",url:"#"
+},
+{
+name:"AI GENERATOR",
+description:"Un espace dédié à la génération créative par intelligence artificielle.",
+icon:"✨",category:"IA",url:"#"
+},
+{
+name:"REVISE",
+description:"Un projet pour apprendre, progresser et réviser autrement.",
+icon:"📚",category:"École",url:"#"
+}
 ];
 
 let selected="Tous";
@@ -257,94 +190,86 @@ const empty=document.getElementById("empty");
 const loading=document.getElementById("loading");
 
 function render(){
-  let list=allProjects.filter(p=>{
-    const q=search.value.toLowerCase();
-    const match=(p.name+" "+p.description+" "+p.category).toLowerCase().includes(q);
-    return match&&(selected==="Tous"||p.category===selected);
-  });
+let list=allProjects.filter(p=>{
+const q=search.value.toLowerCase();
+const match=(p.name+" "+p.description+" "+p.category).toLowerCase().includes(q);
+return match&&(selected==="Tous"||p.category===selected);
+});
 
-  if(document.getElementById("sort").value==="az"){
-    list.sort((a,b)=>a.name.localeCompare(b.name));
-  }
+if(document.getElementById("sort").value==="az"){
+list.sort((a,b)=>a.name.localeCompare(b.name));
+}
 
-  grid.innerHTML=list.map(p=>{
-    const valid=p.url&&p.url!=="#";
-    const repo=p.repo||p.github||"#";
-    return `
-      <article class="card">
-        <div class="card-top">
-          <div class="icon">${p.icon||"📁"}</div>
-          <div class="status">${valid?"● DISPONIBLE":"● PROJET"}</div>
-        </div>
-        <h3>${escapeHTML(p.name)}</h3>
-        <p>${escapeHTML(p.description||"Projet GitHub")}</p>
-        <div class="category">${escapeHTML(p.category||"Autre")}</div>
-        <div class="card-actions">
-          ${valid?`<a class="btn" href="${p.url}" target="_blank">OUVRIR ↗</a>`:`<span class="btn secondary">LIEN À AJOUTER</span>`}
-          ${repo!=="#"?`<a class="btn secondary" href="${repo}" target="_blank">GITHUB</a>`:""}
-        </div>
-      </article>`;
-  }).join("");
+grid.innerHTML=list.map(p=>{
+const valid=p.url&&p.url!=="#";
+const repo=p.repo||p.github||"#";
+return `
+<article class="card">
+<div class="card-top">
+<div class="icon">${p.icon||"📁"}</div>
+<div class="status">${valid?"● EN LIGNE":"● PROJET"}</div>
+</div>
+<h3>${escapeHTML(p.name)}</h3>
+<p>${escapeHTML(p.description||"Projet GitHub")}</p>
+<div class="category">${escapeHTML(p.category||"Autre")}</div>
+<div class="card-actions">
+${valid?`<a class="btn" href="${p.url}" target="_blank" rel="noopener">OUVRIR ↗</a>`:`<span class="btn secondary">LIEN À AJOUTER</span>`}
+${repo!=="#"?`<a class="btn secondary" href="${repo}" target="_blank" rel="noopener">GITHUB</a>`:""}
+</div>
+</article>`;
+}).join("");
 
-  empty.style.display=list.length?"none":"block";
-  document.getElementById("count").textContent=allProjects.length;
+empty.style.display=list.length?"none":"block";
+document.getElementById("count").textContent=allProjects.length;
 }
 
 function escapeHTML(str){
-  return String(str).replace(/[&<>"']/g,m=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",
-    '"':"&quot;","'":"&#39;"
-  }[m]));
+return String(str).replace(/[&<>"']/g,m=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",
+'"':"&quot;","'":"&#39;"
+}[m]));
 }
 
 search.addEventListener("input",render);
 document.getElementById("sort").addEventListener("change",render);
 
 document.querySelectorAll(".filter").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelector(".filter.active")?.classList.remove("active");
-    btn.classList.add("active");
-    selected=btn.dataset.category;
-    render();
-  });
+btn.addEventListener("click",()=>{
+document.querySelector(".filter.active")?.classList.remove("active");
+btn.classList.add("active");
+selected=btn.dataset.category;
+render();
+});
 });
 
-// Récupération automatique des dépôts GitHub publics
 async function loadGitHub(){
-  try{
-    const response=await fetch(
-      "https://api.github.com/users/enzopontivien/repos?per_page=100&sort=updated"
-    );
-    if(!response.ok)throw new Error("GitHub indisponible");
+try{
+const response=await fetch("https://api.github.com/users/enzopontivien/repos?per_page=100&sort=updated");
+if(!response.ok)throw new Error("GitHub indisponible");
+const repos=await response.json();
 
-    const repos=await response.json();
-
-    repos.forEach(repo=>{
-      const exists=allProjects.some(p=>
-        p.name.toLowerCase()===repo.name.toLowerCase()
-      );
-      if(!exists){
-        allProjects.push({
-          name:repo.name,
-          description:repo.description||"Projet GitHub — découvrez ce projet.",
-          category:"Autre",
-          icon:"💻",
-          url:repo.homepage||"#",
-          repo:repo.html_url
-        });
-      }
-    });
-  }catch(e){
-    console.log("Chargement GitHub impossible",e);
-  }
-
-  loading.style.display="none";
-  render();
+repos.forEach(repo=>{
+const exists=allProjects.some(p=>p.name.toLowerCase()===repo.name.toLowerCase());
+if(!exists){
+allProjects.push({
+name:repo.name,
+description:repo.description||"Projet GitHub — découvrez ce projet.",
+category:"Autre",
+icon:"💻",
+url:repo.homepage||"#",
+repo:repo.html_url
+});
+}
+});
+}catch(e){
+console.log("Chargement GitHub impossible",e);
+}
+loading.style.display="none";
+render();
 }
 
 render();
 loadGitHub();
 </script>
-
 </body>
 </html>
